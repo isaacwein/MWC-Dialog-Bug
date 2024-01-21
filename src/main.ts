@@ -1,6 +1,7 @@
 
 import  '@material/web/all';
 import {MdIconButton,MdDialog} from '@material/web/all';
+import { deepCopy } from './deepCopy';
 
 const $ = (arg: string) => document.querySelector(arg);
 
@@ -16,21 +17,28 @@ openDialog1.onclick = () => {
 openDialog2.onclick = () => {
   myDialog2.show();
 };
-
-myDialog2.getOpenAnimation().dialog![0][0] = [
+let myDialog2OpenAnimation = myDialog2.getOpenAnimation()
+myDialog2OpenAnimation = deepCopy(myDialog2OpenAnimation)
+myDialog2OpenAnimation.dialog![0][0] = [
   { transform: 'translateX(-100%)' },
   { transform: 'translateX(0)' },
 ];
-myDialog2.getOpenAnimation().container![1][0] = [
+myDialog2OpenAnimation.container![1][0] = [
   { width: '0%' },
   { width: '100%' },
 ];
+myDialog2.getOpenAnimation=()=>myDialog2OpenAnimation
 
-myDialog2.getCloseAnimation().dialog![0][0] = [
+
+let myDialog2CloseAnimation = myDialog2.getCloseAnimation()
+myDialog2CloseAnimation = deepCopy(myDialog2CloseAnimation)
+
+myDialog2CloseAnimation.dialog![0][0] = [
   { transform: 'translateX(0)' },
   { transform: 'translateX(-100%)' },
 ];
-myDialog2.getCloseAnimation().container![0][0] = [
+myDialog2CloseAnimation.container![0][0] = [
   { width: '100%' },
   { width: '0%' },
 ];
+myDialog2.getCloseAnimation=()=>myDialog2CloseAnimation

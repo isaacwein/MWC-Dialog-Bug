@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Symbols+Outlined"
+      rel="stylesheet"
+    />
+    <title>Vite + TS</title>
+    <style>
+      body {
+        background: #fff;
+        height: 100%;
+        padding: 0;
+        margin: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <md-icon-button type="button" id="open-dialog-1">
+      <md-icon>counter_1</md-icon>
+    </md-icon-button>
+
+    <md-icon-button type="button" id="open-dialog-2">
+      <md-icon>counter_2</md-icon>
+    </md-icon-button>
+
+    <md-dialog id="my-dialog-1">
+      <div slot="content">dialog 1</div>
+    </md-dialog>
+
+    <md-dialog id="my-dialog-2">
+      <div slot="content">dialog 2.</div>
+    </md-dialog>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
